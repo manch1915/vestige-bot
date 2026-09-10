@@ -1,0 +1,13 @@
+services:
+  bot:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DB_PATH: /app/data/vestige.db
+      MEDIA_DIR: /app/data/media
+    volumes:
+      - vestige-data:/app/data
+
+volumes:
+  vestige-data:

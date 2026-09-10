@@ -1,0 +1,54 @@
+name: Bug report
+description: Something the bot does wrong
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Never paste your bot token. If it leaked, regenerate it in @BotFather first.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected and what you got instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Connect the bot to the account
+        2. Have the other side delete a photo
+        3. No alert arrives
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feature
+    attributes:
+      label: Which feature
+      options:
+        - Deletion alerts
+        - Edit alerts
+        - View-once rescue
+        - Settings section
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version and Python
+      placeholder: "0.1.0, Python 3.12, Docker"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Output with LOG_LEVEL=DEBUG, with tokens and personal data removed.
+      render: text

@@ -61,7 +61,7 @@ async def cmd_settings(message: Message, storage: Storage) -> None:
 @router.callback_query(F.data.startswith(f"{CALLBACK_PREFIX}:"))
 async def toggle(callback: CallbackQuery, storage: Storage) -> None:
     owner_id = callback.from_user.id
-    _, key = callback.data.split(":", 1)
+    _, _, key = (callback.data or "").partition(":")
 
     if key == "lang":
         prefs = await storage.get_prefs(owner_id)
